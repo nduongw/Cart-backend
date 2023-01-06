@@ -22,7 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('cart/add-to-cart', [CartController::class, 'addToCart']);
-Route::get('cart/show', [CartController::class, 'showCart']);
+Route::get('cart/show', [CartController::class, 'showCart'])->middleware('checkLogin::class');
 Route::patch('cart/update', [CartController::class, 'updateQuantity']);
 Route::delete('cart/delete/{id}', [CartController::class, 'deleteProduct']);
 
