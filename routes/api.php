@@ -21,11 +21,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('register', [AuthController::class, 'register']);
-Route::post('add-to-cart', [CartController::class, 'addToCart']);
-Route::get('cart', [CartController::class, 'showCart']);
-Route::post('update', [CartController::class, 'updateQuantity']);
-Route::delete('delete/{id}', [CartController::class, 'deleteProduct']);
+Route::post('cart/add-to-cart', [CartController::class, 'addToCart']);
+Route::get('cart/show', [CartController::class, 'showCart']);
+Route::patch('cart/update', [CartController::class, 'updateQuantity']);
+Route::delete('cart/delete/{id}', [CartController::class, 'deleteProduct']);
 
 # Order API
-Route::get('order/orders', [OrderController::class, 'showOrders']);
+Route::get('order/show', [OrderController::class, 'showOrders']);
 Route::post('order/create', [OrderController::class, 'createOrder']);
