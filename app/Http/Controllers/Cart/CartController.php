@@ -23,9 +23,9 @@ class CartController extends Controller
     }
 
     public function showCart() {
-        $orders = Cart::all();
+        $cart = Cart::all();
 
-        return response()->json($orders, 200);
+        return response()->json($cart, 200);
     }
 
     public function updateQuantity(Request $request) {
