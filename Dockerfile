@@ -41,6 +41,9 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN setcap "cap_net_bind_service=+ep" /usr/bin/php8.0
+
+COPY composer.json composer.json
+
 RUN composer install
 
 RUN groupadd --force -g $WWWGROUP sail
