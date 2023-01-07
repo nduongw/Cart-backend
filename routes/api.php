@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Cart\CartController;
 use App\Http\Controllers\Order\OrderController;
+use App\Http\Controllers\OrderDetails\OrderDetailsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('register', [AuthController::class, 'register']);
+// Route::post('register', [AuthController::class, 'register']);
 Route::post('cart/add-to-cart', [CartController::class, 'addToCart']);
 Route::get('cart/show', [CartController::class, 'showCart'])->middleware('checkLogin::class');
 Route::patch('cart/update', [CartController::class, 'updateQuantity']);
@@ -29,3 +30,6 @@ Route::delete('cart/delete/{id}', [CartController::class, 'deleteProduct']);
 # Order API
 Route::get('order/show', [OrderController::class, 'showOrders']);
 Route::post('order/create', [OrderController::class, 'createOrder']);
+
+# Order Details API
+Route::get('order-details/get/{id}', [OrderDetailsController::class, 'getOrderDetails']);
