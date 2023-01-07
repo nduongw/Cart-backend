@@ -8,10 +8,10 @@ if [ ! -d /.composer ]; then
     mkdir /.composer
 fi
 
+composer update
 composer install
 npm install
 php artisan migrate
-ls
 chmod -R ugo+rw /.composer
 
 if [ ! -z "$PORT" ]; then
