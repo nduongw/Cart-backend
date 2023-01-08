@@ -11,6 +11,9 @@ fi
 composer update
 composer install
 npm install
+npm install --save-dev vite laravel-vite-plugin
+npm install --save-dev @vitejs/plugin-vue
+npm run build
 php artisan migrate
 chmod -R ugo+rw /.composer
 chmod -R 775 storage
